@@ -15,7 +15,7 @@
 
   var WHATS = '554197980740';
   /* TROCAR pelo endpoint real do Google Apps Script (Implantar > App da Web) */
-  var ENDPOINT = 'https://script.google.com/macros/s/COLE_AQUI_O_ID_DA_IMPLANTACAO/exec';
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbyGWoWw6Ck7kjpsbvSu2rEE52l-1N9YX4p7gPDePnIu-chUrRwrhLHDRsUtUG-iTMnV/exec';
 
   var dl = function (evento, dados) {
     window.dataLayer = window.dataLayer || [];

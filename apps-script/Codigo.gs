@@ -78,7 +78,7 @@ function pegarAba_() {
     var titulos = COLUNAS.map(function (c) { return c[1]; });
     aba.appendRow(titulos);
     var cabecalho = aba.getRange(1, 1, 1, titulos.length);
-    cabecalho.setFontWeight('bold').setBackground('#0A2340').setFontColor('#FFFFFF');
+    cabecalho.setFontWeight('bold').setBackground('#080A0D').setFontColor('#FFFFFF');
     aba.setFrozenRows(1);
     aba.setColumnWidth(1, 150);
     aba.setColumnWidth(2, 200);

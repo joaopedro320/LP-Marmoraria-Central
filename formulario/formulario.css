@@ -16,8 +16,8 @@
 
 /* ---------- Card do formulario ---------- */
 form.lead-form{position:relative;padding:0;overflow:hidden;scroll-margin-top:96px}
-form.lead-form::before{content:"";display:block;height:5px;background:linear-gradient(90deg,#34414D,#AEB7BF)}
-.lead-form__corpo{padding:24px 22px 26px}
+form.lead-form::before{content:"";display:block;height:6px;background:linear-gradient(90deg,var(--azul-500),#C2C9CF)}
+.lead-form__corpo{padding:22px 22px 22px}
 .lead-selo{display:flex;align-items:center;gap:8px;margin:0 0 14px;padding:8px 12px;border-radius:100px;background:var(--azul-100);color:var(--azul-500);font-size:.74rem;line-height:1.35;font-weight:500}
 .lead-selo svg{width:16px;height:16px;flex:none}
 .lead-titulo{font-size:clamp(1.35rem,2.4vw,1.7rem);margin-bottom:8px}
@@ -25,7 +25,7 @@ form.lead-form::before{content:"";display:block;height:5px;background:linear-gra
 .lead-prog{margin-bottom:20px}
 .lead-prog__topo{display:flex;justify-content:space-between;font-family:'Poppins',sans-serif;font-size:.76rem;font-weight:600;color:var(--azul-500);margin-bottom:8px}
 .lead-prog__trilho{height:7px;border-radius:10px;background:var(--linha);overflow:hidden}
-.lead-prog__barra{display:block;height:100%;width:50%;border-radius:10px;background:linear-gradient(90deg,#34414D,#151A20);transition:width .45s cubic-bezier(.22,.61,.36,1)}
+.lead-prog__barra{display:block;height:100%;width:50%;border-radius:10px;background:linear-gradient(90deg,var(--azul-500),#C2C9CF);transition:width .45s cubic-bezier(.22,.61,.36,1)}
 fieldset.lead-passo{border:0;margin:0;padding:0;min-width:0}
 fieldset.lead-passo[hidden]{display:none}
 fieldset.lead-passo:not([hidden]){animation:leadPasso .4s ease both}
@@ -35,7 +35,8 @@ fieldset.lead-passo:not([hidden]){animation:leadPasso .4s ease both}
 .lead-form .btn[disabled]{opacity:.7;cursor:progress}
 .lead-form.enviando [data-enviar]::after{content:"";width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;animation:leadGira .7s linear infinite}
 @keyframes leadGira{to{transform:rotate(360deg)}}
-.lead-form .form-status{min-height:1.2em;margin:12px 0 0;font-size:.85rem}
+.lead-form .form-status{margin:12px 0 0;font-size:.85rem}
+.lead-form .form-status:empty{display:none}
 .lead-form .form-status.erro-envio{color:#C0392B}
 .lead-form.pulsa{animation:leadPulsa 1.1s ease}
 @keyframes leadPulsa{0%,100%{box-shadow:var(--sombra-forte)}40%{box-shadow:0 0 0 5px rgba(174,183,191,.65),var(--sombra-forte)}}
@@ -68,5 +69,5 @@ fieldset.lead-passo:not([hidden]){animation:leadPasso .4s ease both}
   .hero__grade{grid-template-columns:1.1fr .9fr;gap:56px}
   .cta-fixo{display:inline-flex}
   .barra-cta{display:none}
-  .lead-form__corpo{padding:28px 30px 30px}
+  .lead-form__corpo{padding:26px 30px 28px}
 }

@@ -263,7 +263,7 @@
   });
 
   /* ---------- Formularios em 2 passos (hero e final) ---------- */
-  var TAG = '#SUA-TAG-AQUI'; /* TROCAR pela tag da LP, ex.: #forms-arquitetos */
+  var TAG = '#forms-arquitetos';
 
   function mascaraTel(v) {
     v = v.replace(/\D/g, '').slice(0, 11);

@@ -355,15 +355,10 @@
       status.textContent = 'Enviando seus dados, aguarde.';
 
       var ctrl = window.AbortController ? new AbortController() : null;
-      var limite = setTimeout(function () { if (ctrl) ctrl.abort(); }, 12000);
+      var estourou = false;
+      var limite = setTimeout(function () { estourou = true; if (ctrl) ctrl.abort(); }, 30000);
 
-      fetch(ENDPOINT, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(dados),
-        signal: ctrl ? ctrl.signal : undefined
-      }).then(function () {
+      var sucesso = function () {
         clearTimeout(limite);
         enviado = true;
         f.classList.remove('enviando');
@@ -373,12 +368,26 @@
         f.querySelector('[data-ok-nome]').textContent = dados.nome.trim().split(/\s+/)[0];
         ok.hidden = false;
         ok.focus({ preventScroll: true });
-      }).catch(function () {
+      };
+      var falha = function () {
         clearTimeout(limite);
         f.classList.remove('enviando');
         btnEnviar.disabled = false;
         status.classList.add('erro-envio');
         status.textContent = 'Não foi possível enviar agora. Verifique sua conexão e tente novamente.';
+      };
+
+      fetch(ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(dados),
+        signal: ctrl ? ctrl.signal : undefined
+      }).then(sucesso).catch(function () {
+        /* Com no-cors o Apps Script grava o lead, mas a resposta redirecionada pode rejeitar mesmo com a
+           planilha atualizada. So tratamos como falha se estiver offline ou se estourou o tempo limite. */
+        if (estourou || navigator.onLine === false) falha();
+        else sucesso();
       });
     });
   });

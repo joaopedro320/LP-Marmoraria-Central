@@ -289,7 +289,7 @@
 
     var dados = {};
     new FormData(form).forEach(function (v, k) { dados[k] = v; });
-    dados.origem = 'Landing Page Google Ads';
+    dados.origem = 'Landing Page Google Ads' + (location.pathname.indexOf('/arquiteto') === 0 ? ' /arquiteto' : '');
     dados.data = new Date().toLocaleString('pt-BR');
 
     enviar.disabled = true;
